@@ -40,7 +40,7 @@ const server = app.listen(PORT , () =>{
 
 const io = new Server(server, {
               cors: {
-                  origin: `${client_url}`,
+                  origin: "https://whatsapp-web-app-clone.netlify.app",
                   credentials: true,
               },
           });
@@ -78,7 +78,7 @@ io.on('connection',  (socket) => {
                   const user = getUser(data.receiverId);
                   if(user)
                   {
-                    io.to(user.socketId).emit('getMessage', data);                    
+                    io.to(user.socketId).emit('getMessage', data);
                   }
               })
 
